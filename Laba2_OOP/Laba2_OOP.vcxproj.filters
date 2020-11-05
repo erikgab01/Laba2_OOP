@@ -15,12 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
     <ClCompile Include="Laba2_OOP.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HeaderLaba2.h">
+    <ClInclude Include="Laba2_OOP.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

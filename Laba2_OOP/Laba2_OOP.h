@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 #pragma once
 
 class Base
@@ -6,23 +7,25 @@ class Base
 public:
 	Base();
 	~Base();
-	void ReturnName();
+	string ReturnName();
 
-private:
-	std::string name;
+protected:
+	string name;
 };
 
 class Point: public Base
 {
 public:
 	Point();
-	Point(int x, int y);
+	Point(int _x, int _y);
 	Point(Point* p);
 	~Point();
-	void SetPoint(int x, int y);
+	void ShowLocation();
+	int* ReturnCoordinates();
+	void SetPoint(int _x, int _y);
 	void Move(int dx, int dy);
 
-private:
+protected:
 	int x, y;
 };
 
@@ -30,10 +33,11 @@ class Point3D: public Point
 {
 public:
 	Point3D();
-	Point3D(int x, int y, int z);
+	Point3D(int _x, int _y, int _z);
 	Point3D(Point3D* p);
 	~Point3D();
-	void SetPoint(int x, int y, int z);
+	void ShowLocation();
+	void SetPoint(int _x, int _y, int _z);
 	void Move(int dx, int dy, int dz);
 
 private:
@@ -44,12 +48,13 @@ class Circle: public Base
 {
 public:
 	Circle();
-	Circle(int r, Point* p);
+	Circle(int _r, Point* p);
+	Circle(Circle* c);
 	~Circle();
 	void Draw();
 
 private:
-	double R;
+	double r;
 	Point* centre;
 };
 
