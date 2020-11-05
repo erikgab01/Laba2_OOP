@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="Laba2_OOP.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HeaderLaba2.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
