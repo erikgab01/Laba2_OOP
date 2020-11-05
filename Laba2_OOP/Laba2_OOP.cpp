@@ -14,7 +14,7 @@ Base::~Base() {
 }
 
 string Base::ReturnName() {
-	return(name);
+	return name;
 }
 
 //класс Point
@@ -108,28 +108,31 @@ void Point3D::ShowLocation() {
 //класс Circle
 
 Circle::Circle() {
+	printf("Circle::Circle()\n");
 	centre = new Point();
 	r = 0;
 	Base::name = "Cirlce";
 }
 
 Circle::Circle(int _r, Point* p) {
+	printf("Circle::Circle(int _r, Point* p)\n");
 	centre = new Point(p);
 	r = _r;
 	Base::name = "Cirlce";
 }
 
 Circle::Circle(Circle* c) {
+	printf("Circle::Circle(Circle* c)\n");
 	centre = new Point(c->centre);
 	r = c->r;
 	Base::name = "Cirlce";
 }
 
 Circle::~Circle() {
-	printf("Circle::~Circle()");
+	printf("Circle::~Circle()\n");
 }
 
 void Circle::Draw() {
 	int* coord = centre->ReturnCoordinates();
-	printf("Drawing circle at (%i, %i) with radius = %f", coord[0], coord[1], r);
+	printf("Drawing circle at (%i, %i) with radius = %f\n", coord[0], coord[1], r);
 }
