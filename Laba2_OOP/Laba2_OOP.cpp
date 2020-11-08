@@ -46,25 +46,25 @@ Point::~Point() {
 void Point::SetPoint(int _x, int _y) {
 	x = _x;
 	y = _y;
-	printf("Point is now at (%i, %i)\n", x, y);
 }
 
 void Point::Move(int dx, int dy) {
 	x += dx;
 	y += dy;
-	printf("Point moved to (%i, %i)\n", x, y);
 }
 
 void Point::ShowLocation() {
-	printf("Point is at (%i, %i)\n", x, y);
+	printf("(%i, %i)\n", x, y);
 }
 
-int* Point::ReturnCoordinates() {
-	int coord[2];
-	coord[0] = x;
-	coord[1] = y;
-	return coord;
+int Point::GetX() {
+	return x;
 }
+
+int Point::GetY() {
+	return y;
+}
+
 
 //класс Point3D
 
@@ -101,9 +101,12 @@ void Point3D::Move(int dx, int dy, int dz) {
 }
 
 void Point3D::ShowLocation() {
-	printf("Point is at (%i, %i, %i)\n", x, y, z);
+	printf("(%i, %i, %i)\n", x, y, z);
 }
 
+int Point3D::GetZ() {
+	return z;
+}
 
 //класс Circle
 
@@ -130,9 +133,18 @@ Circle::Circle(Circle* c) {
 
 Circle::~Circle() {
 	printf("Circle::~Circle()\n");
+	delete centre;
 }
 
 void Circle::Draw() {
-	int* coord = centre->ReturnCoordinates();
-	printf("Drawing circle at (%i, %i) with radius = %f\n", coord[0], coord[1], r);
+	printf("Рисуем окружность с центром (%i, %i) и радиусом = %i\n", centre->GetX(), centre->GetY(), r);
+}
+
+void Circle::IsPointInCircle(Point* p) 
+{
+	if ((p->GetX() - centre->GetX()) * (p->GetX() - centre->GetX()) + (p->GetY() - centre->GetY()) * (p->GetY() - centre->GetY()) < r * r)
+		printf("Точка (%i, %i) в окружности\n", p->GetX(), p->GetY());
+	else if ((p->GetX() - centre->GetX()) * (p->GetX() - centre->GetX()) + (p->GetY() - centre->GetY()) * (p->GetY() - centre->GetY()) == r * r)
+		printf("Point at (%i, %i) на окружности\n", p->GetX(), p->GetY());
+	else printf("Point at (%i, %i) вне окружности\n", p->GetX(), p->GetY());
 }

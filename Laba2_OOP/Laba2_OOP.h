@@ -21,7 +21,8 @@ public:
 	Point(Point* p);
 	~Point();
 	void ShowLocation();
-	int* ReturnCoordinates();
+	int GetX();
+	int GetY();
 	void SetPoint(int _x, int _y);
 	void Move(int dx, int dy);
 
@@ -37,6 +38,7 @@ public:
 	Point3D(Point3D* p);
 	~Point3D();
 	void ShowLocation();
+	int GetZ();
 	void SetPoint(int _x, int _y, int _z);
 	void Move(int dx, int dy, int dz);
 
@@ -52,9 +54,10 @@ public:
 	Circle(Circle* c);
 	~Circle();
 	void Draw();
+	void IsPointInCircle(Point* p);
 
 private:
-	double r;
+	int r;
 	Point* centre;
 };
 
