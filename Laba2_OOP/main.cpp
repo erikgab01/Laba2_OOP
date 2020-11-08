@@ -112,6 +112,10 @@ void func4()
     p3d2->ShowLocation();
 
     _getch();
+
+    delete p;
+    delete p3d1;
+    delete p3d2;
 }
 
 
